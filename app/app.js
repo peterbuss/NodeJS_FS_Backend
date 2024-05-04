@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const userRouter = require('../router/userRouter');
+const { connect } = require('../db/db');
 const app = express();
 
 // use middleware to form our contract for incoming json payloads ONLY!
@@ -54,7 +55,9 @@ app.use((error,req,res,next) => {
     });
 });
 
-// db
+// db 
+connect();
+// up to here is called only once, then the app sleeps and waits for requests
 
 module.exports = app;
 
