@@ -3,8 +3,11 @@ require('dotenv').config();
 const User = require('../models/userModel');
 
 const connect = async() => {
-    await mongoose.connect(process.env.mongo);
+ 
     console.log(`MongoDB is up and running`);
+    mongoose.set('strictQuery', true);
+    await mongoose.connect(process.env.mongo);
+    
 
     /* This newer version of mongoose no longer accepts a callback
     , () => {
@@ -18,7 +21,7 @@ const disconnect = async () => {
 
 // obj { firstName: req.body.firstName, email: req.body.email }
 const findUser = async (obj) =>  {
-    User.findOne(obj);
+    return await User.findOne(obj).exec();
 };
 
 const saveUser = async (newUser) =>  {

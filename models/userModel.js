@@ -1,10 +1,18 @@
 const mongoose = require('mongoose');
 
+const ObjectId = mongoose.Types.ObjectId;
+
 const userSchema = mongoose.Schema({
     // id
     // firstName, lastName, address, city, state, zipCode, email, password
 
-    _id: mongoose.Schema.Types.ObjectId,
+    // mongoose.Schema.Types.ObjectId, - from instructor 
+    // in current version could use mongoose.Typee.ObjectId, but mongoose does this for us.
+
+/*     _id: {
+        type: String,  -> is defined automatically by mongoose. trying this made problems!
+    },
+ */    
     firstName: {
         type: String,
         required: true,
@@ -39,4 +47,4 @@ const userSchema = mongoose.Schema({
     },
 });
 
-module.export = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
