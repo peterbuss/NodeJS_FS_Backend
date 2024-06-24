@@ -7,8 +7,8 @@ require('dotenv').config();
 
 
 exports.registerUser = async (req, res ) => {
-    try {
-            console.log("1");
+    try { 
+            console.log("1 and email", req.body.email);
             const user = await findUser({ email: req.body.email }) ;
             console.log("2");
             console.log("user:", user);
@@ -91,6 +91,7 @@ exports.loginUser = async (req, res) => {
             if(result) {
                 loggedUser.password = null;
                 const token = jwt.sign({ user: loggedUser }, process.env.jwt_secret);
+                console.log('user login token signed:', token);
                 return res.status(201).json({
                     user: loggedUser,
                     logged: true,

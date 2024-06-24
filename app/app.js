@@ -1,12 +1,16 @@
 const express = require("express");
 const cors = require('cors');
 const userRouter = require('../router/userRouter');
+const bookRouter = require('../router/bookRouter');
+const authorRouter = require('../router/authorRouter');
 const { connect } = require('../db/db');
 const app = express();
 
 // use middleware to form our contract for incoming json payloads ONLY!
 app.use(express.json());
-// use middleware for url encoding
+
+// use middleware for url encoding  -- was it the next line that was required for it to work
+// otherwise no data would be returned by form requests
 app.use(express.urlencoded({ extended: true }));
 // use middleware to handle cors policy
 app.use(cors());
@@ -18,10 +22,9 @@ app.get('/', (req,res,next)=>{
 });
 
 // routers
-
-
-
 app.use('/users', userRouter);
+app.use('/books', bookRouter);
+app.use('/authors', authorRouter);
 // bad url or error we can handle
 // with middleware
 app.use((res, req, next) => {
