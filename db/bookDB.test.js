@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { saveBook, findBooks, findBook, updateBook, deleteBook } = require('../db/bookDB');
 
 // describe test and expect
-jest.mock('./bookDb.js');
+jest.mock('./bookDB.js');
 let id = null;
 
 describe("Book DB Tests", () => {

@@ -1,0 +1,206 @@
+{
+    "openapi": "3.1.0",
+    "swagger": "5",
+    "info": {
+        "title": "NodeJS Bootcamp API",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Peter BUSS",
+            "email": "peter@peter.com",
+            "url": "http://nonegiven.non"
+        }
+    },
+    "servers": [
+        {
+            "description": "Local Server",
+            "url": "http://localhost:3001"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "paths": {
+        "/users/register": {
+            "post": {
+                "tags": ["Users"],
+                "description": "Register User",
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string",
+                                        "default": "Peter"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "default": "BUSS"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "default": "123 Bord Street"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "default": "Bellach"
+                                    },
+                                    "state": {
+                                        "type": "string",
+                                        "default": "CA"
+                                    },
+                                    "zipCode": {
+                                        "type": "string",
+                                        "default": "4512"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "default": "peter@peter.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "default": "12345678"
+                                    }
+                                }                                       
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            }
+        },
+        "/users/login": {
+            "post": {
+                "tags": ["users"],
+                "description": "Login Users",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "default": "peter@peter.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "default": "12345678"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":  {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            }
+        },
+        "/books": {
+            "post": {
+                "tags": ["Books"],
+                "description": "Save a Book",
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "default": "A tree grows in Brooklyn"
+                                    },
+                                    "author": {
+                                        "type": "string",
+                                        "default": "Mike Leaf"
+                                    },
+                                    "ISBN": {
+                                        "type": "string",
+                                        "default": "123-56-234-0"
+                                    },
+                                    "numberOfPages": {
+                                        "type": "string",
+                                        "default": "256"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "default": 12.99
+                                    },
+                                    "yearPublished": {
+                                        "type": "string",
+                                        "default": "1955"
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                }                                    
+            },
+            "get": {
+                "tags": ["Books"],
+                "description": "Get a Book",
+                                
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            }
+        }        
+    }
+}
