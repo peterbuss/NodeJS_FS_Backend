@@ -86,10 +86,12 @@ exports.patchAuthor = async (req, res) => {
     try {
         // get the id from params
         const id = req.params.authorId;
+        console.log("Author Id", id);
         // create an author object
         const author = new Author();
         // object assign req.body
         const update = Object.assign(author, req.body);
+        console.log("updated author", update);
         // updateAuthor return success
         const result = await updateAuthor({_id: id}, update);
         return successTemplate(res, result, messages.author_updated, 200);

@@ -201,6 +201,346 @@
                     }
                 }
             }
-        }        
+        } ,  
+        "/books/{bookId}":{
+            "get":{
+                "tags":[
+                    "Books"
+                ],
+                "description":"Get a book by id",
+                "parameters":[
+                    {
+                        "name":"bookId",
+                        "in":"path",
+                        "description":"The book id:",
+                        "required":true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "put":{
+                "tags":[
+                    "Books"
+                ],
+                "description":"Update a book by id",
+                "parameters":[
+                    {
+                        "name":"bookId",
+                        "in":"path",
+                        "description":"The book id:",
+                        "required":true
+                    }
+                ],
+                "requestBody":{
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "default": "A tree grows in Brooklyn Heights"
+                                    },
+                                    "author": {
+                                        "type": "string",
+                                        "default": "Mike Leaf"
+                                    },
+                                    "ISBN": {
+                                        "type": "string",
+                                        "default": "123-56-234-0"
+                                    },
+                                    "numberOfPages": {
+                                        "type": "string",
+                                        "default": "257"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "default": 15.99
+                                    },
+                                    "yearPublished": {
+                                        "type": "string",
+                                        "default": "1956"
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                }, 
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "delete":{
+                "tags":[
+                    "Books"
+                ],
+                "description":"Delete a book by id",
+                "parameters":[
+                    {
+                        "name":"bookId",
+                        "in":"path",
+                        "description":"The book id:",
+                        "required":true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            }
+        },
+        "/authors": {
+            "post": {
+                "tags": ["Authors"],
+                "description": "Save an Author",
+                "requestBody": {
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "default": "Jimi Hendrix"
+                                    },
+                                    "book": {
+                                        "type": "string",
+                                        "default": "66815ffbdc7030fe66339053"
+                                    },
+                                    "publisher": {
+                                        "type": "string",
+                                        "default": "Atlantic Records"
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "default": "http://altrecords.com"
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "default": "@Jimi"
+                                    },
+                                    "about": {
+                                        "type": "string",
+                                        "default": "I'm just and author"
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }                                    
+            },
+            "get": {
+                "tags": ["Authors"],
+                "description": "Get all Authors",
+                                
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            }
+        },  
+        "/authors/{authorId}":{
+            "get":{
+                "tags":[
+                    "Authors"
+                ],
+                "description":"Get an Author by id",
+                "parameters":[
+                    {
+                        "name":"authorId",
+                        "in":"path",
+                        "description":"The author id:",
+                        "required":true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "patch":{
+                "tags":[
+                    "Authors"
+                ],
+                "description":"Update an Author by id",
+                "parameters":[
+                    {
+                        "name":"authorId",
+                        "in":"path",
+                        "description":"The author id:",
+                        "required":true
+                    }
+                ],
+                "requestBody":{
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "default": "Jimi Hendrix moded"
+                                    },
+                                    "book": {
+                                        "type": "string",
+                                        "default": ""
+                                    },
+                                    "publisher": {
+                                        "type": "string",
+                                        "default": "Atlantic Records 2nd"
+                                    },
+                                    "website": {
+                                        "type": "string",
+                                        "default": "http://alt2records.com"
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "default": "@Jimi2"
+                                    },
+                                    "about": {
+                                        "type": "string",
+                                        "default": "I'm just and author ha"
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                }, 
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            },
+            "delete":{
+                "tags":[
+                    "Authors"
+                ],
+                "description":"Delete an author by id",
+                "parameters":[
+                    {
+                        "name":"authorId",
+                        "in":"path",
+                        "description":"The author id:",
+                        "required":true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Error"
+                    },
+                    "501": {
+                        "description": "Error"
+                    }
+                }
+            }
+        }     
     }
 }
