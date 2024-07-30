@@ -52,8 +52,9 @@ exports.getAuthors = async (req, res) =>  {
         }
         // else
         else {
+            return successTemplate(res, authors, messages.no_authors_found, 206);
             // throw an error
-            throw new Error(messages.no_authors_found);
+            //throw new Error(messages.no_authors_found);
         }
     }
     catch(e) {
