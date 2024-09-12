@@ -79,6 +79,7 @@ exports.loginUser = async (req, res) => {
     // else
     // return response authenticaton failed (passwords didn't compare)    
     try {
+        console.log("user login with", req.body.email);
         const loggedUser = await findUser({email: req.body.email});
         
         if(!loggedUser) {

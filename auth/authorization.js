@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
         //const [, token] = req.headers.authorization.split(" ");
         if(req.headers.authorization)
             [, token] = req.headers.authorization.split(" ");
-        console.log('token:', token);
+        //console.log('token:', token);
         console.log('secret', process.env.jwt_secret);
 /*         
         if(token === process.env.jwt_secret) {
